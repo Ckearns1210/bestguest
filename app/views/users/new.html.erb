@@ -1,0 +1,17 @@
+<div class="new-user-form">
+<h1>Welcome to Best Guest!  Please Sign Up!</h1>
+  <%= form_for @user do |f| %>
+  <%= f.label :name%><br>
+  <%= f.text_field :name%><br>
+  <%= f.label :email%><br>
+  <%= f.text_field :email%><br>
+  <%= f.label :username%><br>
+  <%= f.text_field :username%><br>  
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br>
+  <%= f.label :password_confirmation %><br>
+  <%= f.password_field :password_confirmation %><br>
+  <br>
+  <%= f.submit "Sign Up"%><br>
+  <% end %>
+</div>
