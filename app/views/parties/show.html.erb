@@ -3,3 +3,14 @@
 <h2>Date:  <%= @party.date.strftime("%B %-d, %Y") %></h2>
 <h2>Time:  <%=@party.time.strftime('%-l:%M %p') %></h2>
 <img src="<%=@party.img_url%>" alt="" />
+<div >
+  <form action="/parties/<%= @party.id %>/add_user" method="post">
+    <input type="hidden" name="_method" value="put">
+    <select name="user_id">
+      <% @users.each do |user| %>
+        <option value="<%= user.id %>"><%= user.name %></option>
+      <% end %>
+    </select><br><br>
+    <input type="submit" value="Add User To Party">
+  </form>
+</div>

@@ -9,5 +9,8 @@
   <%= f.time_field :time %><br>
   <%= f.label :img_url %><br>
   <%= f.text_field :img_url %><br>
+  <%= f.collection_select(:user_id, User.all, :id, :user_name ) %>
   <%= f.submit %>
+
+
 <% end %>

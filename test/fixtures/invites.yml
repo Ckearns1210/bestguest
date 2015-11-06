@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  t.integer: 
+  t.integer: 
+  t.integer: 
+  t.string: 
+
+two:
+  email: MyString
+  t.integer: 
+  t.integer: 
+  t.integer: 
+  t.string: 

@@ -6,11 +6,14 @@ class PartiesController < ApplicationController
   def show
     @party = Party.find(params[:id])
     @items = Item.all
+    @users = User.all
   end
 
 
   def new
     @party = Party.new
+    @items= Item.new
+    @users = User.new
   end
 
   def create
@@ -21,6 +24,7 @@ class PartiesController < ApplicationController
     else
       redirect_to new_party_path
     end
+
 end
 
   def edit
@@ -39,6 +43,13 @@ end
     redirect_to parties_path
   end
 
+  def add_user
+    party = Party.find(params[:id])
+    user= User.find(params[:user_id])
+    party.add_user(user)
+    redirect_to playlist_path(playlist)
+  end
+
   def add_item
     party = Party.find(params[:id])
     item = Item.find(params[:item_id])
@@ -52,6 +63,8 @@ end
     party.remove_item(item)
     redirect_to party_path(party)
   end
+
+  private
 
   def party_params
     params.require(:party).permit(:location, :date, :time, :name, :img_url)
