@@ -2,6 +2,7 @@
 <% @parties.each do |party| %>
   <h3>
     <%= party.name %>
+    <img src="<%=party.img_url%>" alt="" />
     <%= link_to "View", party_path(party)  %>
   </h3>
 <% end %>

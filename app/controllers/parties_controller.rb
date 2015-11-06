@@ -15,6 +15,7 @@ class PartiesController < ApplicationController
 
   def create
     @party = Party.new(party_params)
+    @party.host = current_user.id
     if @party.save
       redirect_to party_path(@party)
     else
@@ -53,7 +54,7 @@ end
   end
 
   def party_params
-    params.require(:party).permit(:location, :date, :time, :name)
+    params.require(:party).permit(:location, :date, :time, :name, :img_url)
   end
 
 end
