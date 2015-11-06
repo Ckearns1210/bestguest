@@ -4,7 +4,7 @@ class PartiesController < ApplicationController
   end
 
   def show
-    @parties = Party.find(params[:id])
+    @party = Party.find(params[:id])
     @items = Item.all
   end
 
@@ -53,7 +53,7 @@ end
   end
 
   def party_params
-    params.require(:playlist).permit(:location, :date, :time, :host)
+    params.require(:party).permit(:location, :date, :time, :name)
   end
 
 end

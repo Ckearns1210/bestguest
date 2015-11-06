@@ -7,7 +7,6 @@ get '/login' => 'sessions#new'
 post '/login' => 'sessions#create'
 get '/logout' => 'sessions#destroy'
 resources :users, only: [:new, :create, :show, :destroy]
-resources :parties do
-  resources :items
-end
+resources :parties
+resources :items
 end

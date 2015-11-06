@@ -2,6 +2,6 @@
 <% @parties.each do |party| %>
   <h3>
     <%= party.name %>
-    <%= link_to "View", party_path(playlist)  %>
+    <%= link_to "View", party_path(party)  %>
   </h3>
 <% end %>

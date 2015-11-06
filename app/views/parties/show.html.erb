@@ -1,0 +1,4 @@
+<h1><%= @party.name %></h1>
+<h2>Location:  <%= @party.location %></h2>
+<h2>Date:  <%= @party.date.strftime("%B %-d, %Y") %></h2>
+<h2>Time:  <%=@party.time.strftime('%-l:%M %p') %></h2>
