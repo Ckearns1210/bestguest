@@ -12,14 +12,14 @@ class PartiesController < ApplicationController
 
   def new
     @party = Party.new
-    @items= Item.new
-    @users = User.new
   end
 
   def create
     @party = Party.new(party_params)
-    @party.host = current_user.id
+    @party.host = User.find(session[:current_user_id])
     if @party.save
+      user = User.find(session[:current_user_id])
+      user.parties << @party
       redirect_to party_path(@party)
     else
       redirect_to new_party_path
