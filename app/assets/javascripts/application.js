@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+;(function($){
+  $(function(){
+    $('input.destroy').click(function(){
+      return confirm($(this).attr('data-confirm'));
+    });
+  });
+})(jQuery);

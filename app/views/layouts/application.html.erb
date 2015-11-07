@@ -1,21 +1,36 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>BestGuest</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% if logged_in? %>
-  <h1>Welcome Back</h1>
-  <%= link_to "#{User.find(session[:current_user_id]).username}'s Profile", user_path(session[:current_user_id]) %> ||
-  <%= link_to "Logout", '/logout' %>
-  <% else %>
-  <%= link_to 'Login', 'login' %> | <%= link_to 'Signup', '/signup' %>
-  <% end %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Best Guest</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application.css.scss', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  </head>
+  <body>
+    <% if logged_in? %>
+    <div class = "container">
+      <ul class="nav nav-pills">
+        <li><%= link_to "Home", '/' %></li>
+        <li><%= link_to "#{User.find(session[:current_user_id]).username}'s Profile", user_path(session[:current_user_id]) %></li>
+        <li><%= link_to "Logout", '/logout' %></li>
+      </ul>
+    </div>
+    <% else %>
+    <div class = "container">
+      <ul class = "nav nav-pills">
+        <li><%= link_to 'Login', 'login' %></li>
+        <li><%= link_to 'Signup', '/signup' %></li>
+      </ul>
+    </div>
+    <% end %>
 
-<%= yield %>
+  <%= yield %>
 
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  </body>
 </html>
