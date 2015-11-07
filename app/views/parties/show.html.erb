@@ -3,7 +3,7 @@
     <% end %>
 
 <h1><%= @party.name %></h1>
-<% if current_user.id == @party.host %>
+<% if @user == @party.host %>
 <div >
   <form action="/parties/<%= @party.id %>/add_user" method="post">
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
