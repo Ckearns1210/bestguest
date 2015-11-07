@@ -46,8 +46,9 @@ end
   def add_user
     party = Party.find(params[:id])
     user= User.find(params[:user_id])
-    party.add_user(user)
-    redirect_to playlist_path(playlist)
+    user.parties << party
+    flash[:alert] = " #{user.name} has been added to your party!"
+    redirect_to party_path(party)
   end
 
   def add_item
