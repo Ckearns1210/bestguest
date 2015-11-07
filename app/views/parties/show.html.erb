@@ -3,6 +3,7 @@
     <% end %>
 
 <h1><%= @party.name %></h1>
+<% if current_user.id == @party.host %>
 <div >
   <form action="/parties/<%= @party.id %>/add_user" method="post">
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
@@ -15,6 +16,8 @@
     <input type="submit" value="Add User To Party">
   </form>
 </div>
+<% end %>
+
 <h2>Location:  <%= @party.location %></h2>
 <h2>Date:  <%= @party.date.strftime("%B %-d, %Y") %></h2>
 <h2>Time:  <%=@party.time.strftime('%-l:%M %p') %></h2>
