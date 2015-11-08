@@ -1,11 +1,4 @@
 class ItemsController < ApplicationController
-  def index
-    @items = Item.all
-  end
-
-  def show
-    @item = Item.find(params[:id])
-  end
 
   def new
     @item = Item.new
@@ -13,10 +6,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.party_id = params[:party_id]
     if @item.save
-      redirect_to item_path(@item)
+      redirect_to party_path(@item.party)
     else
-      redirect_to new_item_path
+      redirect_to party_path
     end
   end
 
@@ -36,10 +30,15 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def claim_item
+    @item = Item.find(params[:id])
+    @item.party_id = nil
+    @item.user_id = session[:user_id]
+  end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :img_url, :party_id)
+    params.require(:item).permit(:name, :img_url)
   end
 end

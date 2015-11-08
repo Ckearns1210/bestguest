@@ -11,6 +11,6 @@ resources :parties do
   member do
   put 'add_user'
   end
-end
-resources :items
-end
+  resources :items
+    end
+  end

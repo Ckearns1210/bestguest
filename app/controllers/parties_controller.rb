@@ -5,7 +5,8 @@ class PartiesController < ApplicationController
 
   def show
     @party = Party.find(params[:id])
-    @items = Item.all
+    @item  = Item.new
+    @item.party_id = @party.id
     @users = User.all
     @user = session[:user_id]
   end
@@ -52,19 +53,21 @@ end
     redirect_to party_path(party)
   end
 
-  def add_item
-    party = Party.find(params[:id])
-    item = Item.find(params[:item_id])
-    party.add_item(item)
-    refirect_to party_path(party)
-  end
-
-  def remove_item
-    party = Party.find(params[:id])
-    item = Item.find(params[:item_id])
-    party.remove_item(item)
-    redirect_to party_path(party)
-  end
+  # def add_item
+  #   party = Party.find(params[:id])
+  #   item = Item.find(params[:id])
+  #   @item = Item.new
+  #   @item.save
+  #   item.party_id = party.id
+  #   redirect_to party_path(party)
+  # end
+  #
+  # def remove_item
+  #   party = Party.find(params[:id])
+  #   item = Item.find(params[:id])
+  #   party.remove_item(item)
+  #   redirect_to party_path(party)
+  # end
 
   private
 

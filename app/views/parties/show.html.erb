@@ -19,8 +19,13 @@
   </form>
 </div>
 <% end %>
-
 <h2>Location:  <%= @party.location %></h2>
 <h2>Date:  <%= @party.date.strftime("%B %-d, %Y") %></h2>
 <h2>Time:  <%=@party.time.strftime('%-l:%M %p') %></h2>
 <img src="<%=@party.img_url%>" alt="" />
+<h3>Please Choose One Item Below:</h3>
+<%= render partial: 'parties/item', collection: @party.items %>
+<%if @user == @party.host %>
+<h1>Add An Item You Need For Your Party!</h1>
+<%= render partial: 'items/form' %>
+<% end %>

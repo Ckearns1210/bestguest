@@ -15,8 +15,24 @@
  */
 
 * {
-  background-image: asset-data-url("background.jpg");
-  background-size:cover;
-  color: white;
-
+  background: #34495e !important;
+  color: white ;
+  background-size: contain;
 }
+
+img {
+  height: 100px !important;
+  width: 200px !important;
+  text-align: center !important;
+  margin-top: 100px !important;
+}
+
+
+  a:hover {
+      background-color: #7f8c8d !important;
+      color: #2c3e50 !important;
+  }
+
+  a {
+    color: white !important;
+  }
