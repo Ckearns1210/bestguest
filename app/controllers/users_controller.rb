@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_action :authenticate, except: [:new, :create]
   def new
     @user = User.new
   end
@@ -9,8 +9,10 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)
+      flash[:success] = "Welcome to Best Guest!"
     else
-      redirect_to '/signup'
+      flash.now[:error] = @user.errors.full_messages.to_sentence
+      render "/users/new"
     end
   end
 
