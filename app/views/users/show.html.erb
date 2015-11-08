@@ -4,6 +4,13 @@
   <% end %>
 <div class="user-page">
 <h1><%= @user.name.capitalize.split(" ")[0]%>'s Events</h1>
+<%if current_user.parties == [] %>
+<h1>You have no upcoming events.  Why don't you throw one?</h1>
+<div>
+  <%= link_to "Start a Party!?", new_party_path %></li>
+<%end %>
+</div>
+
 <% @user.parties.each do |party| %>
   <h3>
     <%= link_to "#{party.name.split.map(&:capitalize).join(' ')}", party_path(party)  %>
