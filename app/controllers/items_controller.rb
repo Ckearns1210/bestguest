@@ -32,9 +32,13 @@ class ItemsController < ApplicationController
   end
 
   def claim_item
+    @party = Party.find(params[:party_id])
     @item = Item.find(params[:id])
+    @item.img_url = @party.id
     @item.party_id = nil
     @item.user_id = session[:user_id]
+    @item.save
+    redirect_to party_path(@party)
   end
 
   private

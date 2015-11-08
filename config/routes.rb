@@ -11,6 +11,10 @@ resources :parties do
   member do
   put 'add_user'
   end
-  resources :items
+  resources :items do
+    member do
+      patch 'claim_item'
+      end
     end
   end
+end

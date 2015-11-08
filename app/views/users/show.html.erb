@@ -9,6 +9,21 @@
     <%= link_to "#{party.name.split.map(&:capitalize).join(' ')}", party_path(party)  %>
   </h3>
 <% end %>
+<div>
+<% @items.each do |item| %>
+<% if item.user_id ==  session[:user_id] %>
+<h2>You are bringing <%= item.name %> to
+<%@parties.each do |party| %>
+  <%if item.img_url.to_i == party.id%>
+  <%= party.name %>.
+  <%end %>
+  <%end %>
+ </h2>
+<% end %>
+<% end %>
+
+
+</div>
 <ul>
   <li> <%= link_to "Start a Party!?", new_party_path %></li>
   <li>
