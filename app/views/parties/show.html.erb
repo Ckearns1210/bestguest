@@ -6,6 +6,8 @@
 
 <% if @user == @party.host %>
 <h3>You Are This Event's Host</h3>
+<%= link_to 'Edit This Party', edit_party_path(@party) %>
+<br>
 <div >
   <form action="/parties/<%= @party.id %>/add_user" method="post">
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
@@ -18,12 +20,31 @@
     <input type="submit" value="Add User To Party">
   </form>
 </div>
+
+<h2>These Are Your Invitied Guests:</h2>
+<% @users.each do |user| %>
+<%if user.parties.include?(@party)%>
+ <h3><%= user.name %></h3>
+ <% end %>
+<% end %>
+<br>
+
 <% end %>
 <h2>Location:  <%= @party.location %></h2>
 <h2>Date:  <%= @party.date.strftime("%B %-d, %Y") %></h2>
 <h2>Time:  <%=@party.time.strftime('%-l:%M %p') %></h2>
-<img src="<%=@party.img_url%>" alt="" />
-<h3>Please Choose One Item Below:</h3>
+<%if @user != @party.host %>
+<h2>Some of your friends have already been invited!  Check out who:</h2>
+<% @users.each do |user| %>
+<%if user.parties.include?(@party)%>
+ <h3><%= user.name %></h3>
+ <% end %>
+<% end %>
+<h3><%= User.find(@party.host).name.capitalize.split(" ")[0] %> hopes you will be the <strong>Best Guest</strong> and contribute one of the following:</h3>
+<%end %>
+<% if @user == @party.host %>
+<h2>These Are The Items You Are Requesting Guests Bring:</h2>
+<%end %>
 <%= render partial: 'parties/item', collection: @party.items %>
 <%if @user == @party.host %>
 <h1>Add An Item You Need For Your Party!</h1>

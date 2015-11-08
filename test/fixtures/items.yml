@@ -2,12 +2,10 @@
 
 one:
   name: MyString
-  img_url: MyString
-  references: 
-  references: 
+  references:
+  references:
 
 two:
   name: MyString
-  img_url: MyString
-  references: 
-  references: 
+  references:
+  references:

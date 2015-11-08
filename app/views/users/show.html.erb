@@ -2,21 +2,17 @@
   <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><h1><%= message %></h1></div>
   <% end %>
-
 <div class="user-page">
-<h1><%= @user.name %>'s Events</h1>
+<h1><%= @user.name.capitalize.split(" ")[0]%>'s Events</h1>
 <% @user.parties.each do |party| %>
   <h3>
-    <%= party.name %>
-    <img src="<%=party.img_url%>" alt="" />
-    <%= link_to "View", party_path(party)  %>
+    <%= link_to "#{party.name.split.map(&:capitalize).join(' ')}", party_path(party)  %>
   </h3>
 <% end %>
-
-
 <ul>
   <li> <%= link_to "Start a Party!?", new_party_path %></li>
-  <li><%=button_to 'Delete your account', @user, :method => :delete, :class => "destroy", data: {confirm: "Are you sure you want delete your account?"} %></li>
+  <li>
+    <%= link_to 'Delete Account',url_for(action: :destroy,id: @user.id),method: :delete, data: {confirm: "Are you sure you want to dlete your account??"} %>
+  </li>
 </ul>
-
 </div>

@@ -1,3 +1,6 @@
 <div>
   <p class="item"><%= item.name %></p>
+  <% if @user == @party.host %>
+  <%= link_to 'Delete This Item', [item.party, item], method: :delete, data: {confirm: 'Are you sure?'}%>
+  <% end %>
 </div>

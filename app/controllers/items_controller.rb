@@ -25,9 +25,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    @item.destory
-    redirect_to items_path
+    @party = Party.find(params[:party_id])
+    @item = @party.items.find(params[:id])
+    @item.destroy
+    redirect_to party_path(@party)
   end
 
   def claim_item
@@ -39,6 +40,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :img_url)
+    params.require(:item).permit(:name)
   end
 end

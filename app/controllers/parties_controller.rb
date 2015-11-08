@@ -1,4 +1,5 @@
 class PartiesController < ApplicationController
+  before_action :authenticate
   def index
     @parties = Party.all
   end
@@ -36,7 +37,7 @@ end
   def update
     @party = Party.find(params[:id])
     @party.update(party_params)
-    redirect_to party(@party)
+    redirect_to party_path(@party)
   end
 
   def destroy
@@ -48,9 +49,14 @@ end
   def add_user
     party = Party.find(params[:id])
     user= User.find(params[:user_id])
+    if user.parties.include?(party)
+      flash[:error] = "#{user.name} has already been invited!"
+      redirect_to party_path(party)
+    else
     user.parties << party
     flash[:alert] = " #{user.name} has been added to your party!"
     redirect_to party_path(party)
+  end
   end
 
   # def add_item
@@ -72,7 +78,7 @@ end
   private
 
   def party_params
-    params.require(:party).permit(:location, :date, :time, :name, :img_url)
+    params.require(:party).permit(:location, :date, :time, :name)
   end
 
 end

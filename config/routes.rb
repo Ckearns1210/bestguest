@@ -6,7 +6,7 @@ post 'users' => 'users#create'
 get '/login' => 'sessions#new'
 post '/login' => 'sessions#create'
 get '/logout' => 'sessions#destroy'
-resources :users, only: [:new, :create, :show, :destroy]
+resources :users, only: [:new, :create, :show, :destroy, :edit, :update]
 resources :parties do
   member do
   put 'add_user'
