@@ -53,10 +53,12 @@
     <%end %>
   <%end %>
   <!-- HOST VIEW -->
+  <div class="container">
   <% if @user == @party.host %>
       <h2 class = "text-primary text-center">Items You Are Requesting Guests Bring:</h2>
       <%= render partial: 'parties/item', collection: @party.items %>
     <%end %>
+      </div>
   <!-- USER VIEW -->
   <!-- Button To Claim Item -->
   <div class="container">

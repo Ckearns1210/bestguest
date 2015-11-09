@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
     @item.party_id = nil
     @item.user_id = session[:user_id]
     @item.save
-    redirect_to party_path(@party)
+    redirect_to :back
   end
 
   private
