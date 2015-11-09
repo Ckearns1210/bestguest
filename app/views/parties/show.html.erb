@@ -48,8 +48,9 @@
           <% end %>
         <% end %>
     </div>
-
-  <h2 class = "text-primary text-center"><%= User.find(@party.host).name.capitalize.split(" ")[0] %> hopes you will be the <em>Best Guest</em> and contribute one of the following:</h3>
+    <%if @party.items != [] %>
+      <h2 class = "text-primary text-center"><%= User.find(@party.host).name.capitalize.split(" ")[0] %> hopes you will be the <em>Best Guest</em> and contribute one of the following:</h2>
+    <%end %>
   <%end %>
   <!-- HOST VIEW -->
   <% if @user == @party.host %>
