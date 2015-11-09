@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+include ApplicationHelper
 before_action :authenticate, except: [:new, :create]
   def new
     @user = User.new
@@ -11,7 +12,7 @@ before_action :authenticate, except: [:new, :create]
       redirect_to user_path(@user.id)
       flash[:success] = "Welcome to Best Guest!"
     else
-      flash.now[:error] = @user.errors.full_messages.to_sentence
+      flash.now[:danger] = @user.errors.full_messages.to_sentence
       render "/users/new"
     end
   end

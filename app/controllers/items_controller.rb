@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  include ApplicationHelper
   before_action :authenticate
   def new
     @item = Item.new

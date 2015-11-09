@@ -1,14 +1,13 @@
-<%= form_for @party do |f| %>
-  <%= f.label :name %><br>
-  <%= f.text_field :name%><br>
-  <%= f.label :location %><br>
-  <%= f.text_field :location %><br>
-  <%= f.label :date %><br>
-  <%= f.date_field :date %><br>
-  <%= f.label :time %><br>
-  <%= f.time_field :time %><br>
-
-  <%= f.submit %>
-
-
+<div class="container">
+<h1 class = "text-primary text-center event-text">Sign Up</h1>
+<%= form_for @party, :html => {:class => "form-group"} do |f| %>
+  <%= f.label :name, :class => 'form-control one'%><br>
+  <%= f.text_field :name, :class => 'form-control'%><br>
+  <%= f.label :location, :class => 'form-control one'%><br>
+  <%= f.text_field :location, :class => 'form-control'%><br>
+  <%= f.label :date, :class => 'form-control one'%><br>
+  <%= f.date_field :date, :class => 'form-control'%><br>
+  <%= f.label :time, :class => 'form-control one'%><br>
+  <%= f.time_field :time, :class => 'form-control' %><br>
+  <%= f.submit "Update",  class: "btn btn-primary btn-block" %>
 <% end %>

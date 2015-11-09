@@ -1,4 +1,5 @@
 class PartiesController < ApplicationController
+  include ApplicationHelper
   before_action :authenticate
   def index
     @parties = Party.all
@@ -24,6 +25,7 @@ class PartiesController < ApplicationController
       user = User.find(session[:user_id])
       user.parties << @party
       redirect_to party_path(@party)
+      flash[:success] = "Event Succesfully Created!"
     else
       redirect_to new_party_path
     end

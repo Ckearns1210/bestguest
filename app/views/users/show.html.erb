@@ -1,40 +1,38 @@
-<div id="user-page">
-  <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><h1><%= message %></h1></div>
-  <% end %>
-<div class="user-page">
-<h1><%= @user.name.capitalize.split(" ")[0]%>'s Events</h1>
-<%if current_user.parties == [] %>
-<h1>You have no upcoming events.  Why don't you throw one?</h1>
-<div>
-  <%= link_to "Start a Party!?", new_party_path %></li>
-<%end %>
-</div>
-
+<div class="user-page container">
+  <div class="container">
+    <h1 class = "text-primary profile-headline text-center"><%= @user.name.capitalize.split(" ")[0]%>'s Events</h1>
+    <%if current_user.parties == [] %>
+    <h1 class = "text-primary text-center">You have no upcoming events.  Why don't you throw one?</h1>
+    <%end %>
+  </div>
+<div class = "container">
 <% @user.parties.each do |party| %>
-  <h3>
-    <%= link_to "#{party.name.split.map(&:capitalize).join(' ')}", party_path(party)  %>
-  </h3>
+  <ul class = "list-group event-list">
+    <li><%= link_to "#{party.name.split.map(&:capitalize).join(' ')}", party_path(party), :class => "btn btn-primary btn-block"  %></li>
+  </ul>
 <% end %>
-<div>
+</div>
+<div class="container">
 <% @items.each do |item| %>
 <% if item.user_id ==  session[:user_id] %>
-<h2>You are bringing <%= item.name %> to
-<%@parties.each do |party| %>
-  <%if item.img_url.to_i == party.id%>
-  <%= party.name %>.
-  <%end %>
-  <%end %>
- </h2>
+  <ul class = "list-group">
+    <li class = list-group-item text-center>Reminder:  You are bringing <%= item.name %> to
+      <%@parties.each do |party| %>
+      <!-- Hack Using empty img_url artifact in database as a placeholder for transferred ownwership of party_id SORRY-->
+        <%if item.img_url.to_i == party.id%>
+        <%= party.name %>.
+      <%end %>
+    <%end %>
+ </li>
+ </ul>
+  <% end %>
 <% end %>
-<% end %>
-
-
 </div>
+<div class= "container profile-links"
 <ul>
-  <li> <%= link_to "Start a Party!?", new_party_path %></li>
+  <li> <%= link_to "Start a Party!?", new_party_path, :class => "btn btn-primary btn-block text-center" %></li>
   <li>
-    <%= link_to 'Delete Account',url_for(action: :destroy,id: @user.id),method: :delete, data: {confirm: "Are you sure you want to dlete your account??"} %>
+    <%= link_to 'Delete Account',url_for(action: :destroy,id: @user.id),method: :delete, :class => "btn btn-primary btn-block", data: {confirm: "Are you sure you want to dlete your account??"} %>
   </li>
 </ul>
 </div>

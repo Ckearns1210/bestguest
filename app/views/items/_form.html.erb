@@ -1,6 +1,6 @@
-
-<%= form_for [@party, @item] do |f| %>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %><br><br>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <%= form_for [@party, @item], :html => {:class => "form-group"} do |f| %>
+    <%= f.text_field :name, :class => "form-control"%><br>
+    <%= f.submit class: "btn btn-primary btn-block" %>
+  <% end %>
+</div>

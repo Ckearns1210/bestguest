@@ -1,6 +1,8 @@
-<div>
-  <p class="item"><%= item.name %></p>
+<div class ="container">
+  <ul class = "text-center">
+    <li class = "list-group-item text-center"><%= item.name %></li>
+  </ul>
   <% if @user == @party.host %>
-  <%= link_to 'Delete This Item', [item.party, item], method: :delete, data: {confirm: 'Are you sure?'}%>
+  <%= link_to 'Delete This Item', [item.party, item], method: :delete, :class => "btn btn-primary btn-block", data: {confirm: 'Are you sure?'}%>
   <% end %>
 </div>

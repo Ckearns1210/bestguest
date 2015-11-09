@@ -14,7 +14,58 @@
  *= require_self
  */
 
-* {
+.event-list {
+  list-style-type: none;
+}
+
+.invite-block {
+  margin-bottom: 75px;
+}
+
+.party-headline {
+  font-size: 30px !important;
+  margin-top: 50px;
+}
+
+.one {
+  background: #7f8c8d !important;
+}
+
+ .event-text {
+   margin-top: 75px;
+   margin-bottom: 50px;
+ }
+
+.profile-links {
+  margin-top: 100px;
+  list-style-type: none !important;
+}
+
+
+.profile-headline {
+  margin: 50px;
+  font-size: 50px !important;
+}
+
+
+.page-header {
+  color: white;
+}
+
+.form-headers {
+  color: white !important;
+}
+
+.text-primary {
+  color: white !important;
+  font-size: 20px;
+}
+
+.splash-page {
+  margin-top: 50px;
+}
+
+body {
   background: #34495e !important;
   color: white ;
   background-size: contain;
@@ -23,7 +74,7 @@
 .logo {
   height: 200px !important;
   width: 400px !important;
-  margin-top: 100px !important;
+  margin-top: 70px !important;
 }
 
 
@@ -34,4 +85,6 @@
 
   a {
     color: white !important;
+    text-decoration: none !important;
+    list-style-type: none !important;
   }

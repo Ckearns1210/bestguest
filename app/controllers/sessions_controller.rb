@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include ApplicationHelper
 
     def new
     end
@@ -9,7 +10,7 @@ class SessionsController < ApplicationController
         log_in user
         redirect_to user
       else
-      flash.now[:danger] = "Invalid email/password combination"
+      flash.now[:error] = "Invalid email/password combination"
       render action: "new"
     end
   end
