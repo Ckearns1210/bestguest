@@ -35,6 +35,7 @@ class ItemsController < ApplicationController
   def claim_item
     @party = Party.find(params[:party_id])
     @item = Item.find(params[:id])
+    #this is a hack, uses img_url field in database to transfer party ID to user.  
     @item.img_url = @party.id
     @item.party_id = nil
     @item.user_id = session[:user_id]
