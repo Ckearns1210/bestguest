@@ -1,33 +1,38 @@
 <div class="user-page container">
   <div class="container">
-    <h1 class = "text-primary profile-headline text-center"><%= @user.name.capitalize.split(" ")[0]%>'s Events</h1>
+    <h1 class = "text-center"><%= @user.name.capitalize.split(" ")[0]%>'s Events</h1>
     <%if current_user.parties == [] %>
     <h1 class = "text-primary text-center">You have no upcoming events.  Why don't you throw one?</h1>
     <%end %>
   </div>
-<div class = "container">
 <% @user.parties.each do |party| %>
-  <ul class = "list-group event-list">
-    <li><%= link_to "#{party.name.split.map(&:capitalize).join(' ')}", party_path(party), :class => "btn btn-primary btn-block"  %></li>
-  </ul>
-<% end %>
+<div class = "container">
+  <div class="row">
+     <div class="col s3">
+       <div class="card blue-grey lighten-5">
+         <div class="card-content black-text">
+
+           <span class="card-title"><%= link_to "#{party.name.split.map(&:capitalize).join(' ')}", party_path(party)%></span>
+         </div>
+
+         <div class="card-action white-text">
+           <% @items.each do |item| %>
+           <% if item.user_id ==  session[:user_id] &&  item.img_url.to_i == party.id %>
+                 <p>
+                   You are bringing <%= item.name %>
+                 </p>
+              <%end %>
+            <% end %>
+          </div>
+         </div>
+       </div>
+     </div>
+   </div>
+  <% end %>
 </div>
 <div class="container">
-<% @items.each do |item| %>
-<% if item.user_id ==  session[:user_id] %>
-  <ul class = "list-group">
-    <li class = list-group-item text-center>Reminder:  You are bringing <%= item.name %> to
-      <%@parties.each do |party| %>
-      <!-- Hack Using empty img_url artifact in database as a placeholder for transferred ownwership of party_id SORRY-->
-        <%if item.img_url.to_i == party.id%>
-        <%= party.name %>.
-      <%end %>
-    <%end %>
- </li>
- </ul>
-  <% end %>
-<% end %>
-</div>
+
+
 <div class= "container profile-links"
 <ul>
   <li> <%= link_to "Start a Party!?", new_party_path, :class => "btn btn-primary btn-block text-center" %></li>
