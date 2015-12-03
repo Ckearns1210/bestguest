@@ -61,21 +61,6 @@ end
   end
   end
 
-  # def add_item
-  #   party = Party.find(params[:id])
-  #   item = Item.find(params[:id])
-  #   @item = Item.new
-  #   @item.save
-  #   item.party_id = party.id
-  #   redirect_to party_path(party)
-  # end
-  #
-  # def remove_item
-  #   party = Party.find(params[:id])
-  #   item = Item.find(params[:id])
-  #   party.remove_item(item)
-  #   redirect_to party_path(party)
-  # end
 
   private
 
