@@ -36,6 +36,7 @@ end
 
   def show
     @user = User.find(params[:id])
+    @users = User.all
     @items = Item.all
     @parties = Party.all
   end

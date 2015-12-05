@@ -1,17 +1,49 @@
-<div class="container">
-<h1 class = "text-primary text-center event-text">Sign Up</h1>
-<%= form_for @user, :html => {:class => "form-group"} do |f| %>
-<%= f.label :name, :class => 'form-control one'%><br>
-<%= f.text_field :name, :class => 'form-control'%><br>
-<%= f.label :email, :class => 'form-control one'%><br>
-<%= f.text_field :email, :class => 'form-control'%><br>
-<%= f.label :username, :class => 'form-control one'%><br>
-<%= f.text_field :username, :class => 'form-control'%><br>
-<%= f.label :password, :class => 'form-control one' %><br>
-<%= f.password_field :password, :class => 'form-control'%><br>
-<%= f.label :password_confirmation, :class => 'form-control one'%><br>
-<%= f.password_field :password_confirmation, :class => 'form-control'%><br>
-<br>
-<%= f.submit "Sign Up", class: "btn btn-primary btn-block"%>
-<%end %>
+<div class="row">
+  <div class="splash-page col-sm-12 col-xs-12 col-md-6">
+    <h1 class = "logo-text">Best Guest</h1>
+    <p class="text-primary splash-text">
+      No one likes throwing a party on their own.  Invite friends, tell them what you need, and let them decide how they can help.
+      <img src="<%= asset_path( 'dinner.svg' ) %>" class ="logo-svg"/>
+    </p>
+
+  </div>
+  <div class="container sign-up col-sm-12 col-xs-12 col-md-6">
+    <div class="row-materialize">
+      <h1 class="text-primary text-center event-text">Sign Up</h1>
+      <%= form_for @user, :html => {:class => "col s12"} do |f| %>
+      <div class="row-materialize">
+        <div class="input-field col s12">
+          <%= f.label :name, :id => "first_name"%><br>
+          <%= f.text_field :name, :class => 'validate', :id => "first_name"%><br>
+        </div>
+      </div>
+      <div class="row-materialize">
+        <div class="input-field col s12">
+          <%= f.label :email, :class => 'validate'%><br>
+          <%= f.text_field :email, :class => 'validate'%><br>
+        </div>
+      </div>
+      <div class="row-materialize">
+        <div class="input-field col s12">
+          <%= f.label :username, :class => 'validate'%><br>
+          <%= f.text_field :username, :class => 'validate'%><br>
+        </div>
+      </div>
+      <div class="row-materialize">
+        <div class="input-field col s12">
+          <%= f.label :password, :class => 'validate' %><br>
+          <%= f.password_field :password, :class => 'validate'%><br>
+        </div>
+      </div>
+      <div class="row-materialize">
+        <div class="input-field col s12">
+          <%= f.label :password_confirmation, :class => 'validate'%><br>
+          <%= f.password_field :password_confirmation, :class => 'validate'%><br>
+        </div>
+      </div>
+      <br>
+      <%= f.submit "Sign Up", class: "btn waves-effect waves-light"%>
+      <%end %>
+    </div>
+  </div>
 </div>

@@ -1,38 +1,61 @@
-<div class="user-page container">
-  <div class="container">
-    <h1 class = "text-primary profile-headline text-center"><%= @user.name.capitalize.split(" ")[0]%>'s Events</h1>
-    <%if current_user.parties == [] %>
-    <h1 class = "text-primary text-center">You have no upcoming events.  Why don't you throw one?</h1>
-    <%end %>
-  </div>
-<div class = "container">
-<% @user.parties.each do |party| %>
-  <ul class = "list-group event-list">
-    <li><%= link_to "#{party.name.split.map(&:capitalize).join(' ')}", party_path(party), :class => "btn btn-primary btn-block"  %></li>
-  </ul>
-<% end %>
-</div>
-<div class="container">
-<% @items.each do |item| %>
-<% if item.user_id ==  session[:user_id] %>
-  <ul class = "list-group">
-    <li class = list-group-item text-center>Reminder:  You are bringing <%= item.name %> to
-      <%@parties.each do |party| %>
-      <!-- Hack Using empty img_url artifact in database as a placeholder for transferred ownwership of party_id SORRY-->
-        <%if item.img_url.to_i == party.id%>
-        <%= party.name %>.
-      <%end %>
-    <%end %>
- </li>
- </ul>
+<h1 class="text-primary profile-headline text-center">Your Events</h1>
+<%if current_user.parties == [] %>
+<h1 class="text-primary text-center">You have no upcoming events. Why don't you throw one?</h1>
+<%end %>
+<div class="row equal">
+  <!-- cycle through all the parties the current user is invited to -->
+  <% @user.parties.each do |party| %>
+  <!-- create an empty variable that will hold the number of items current user is bringing to party -->
+    <% partyitemnumber = 0 %>
+    <!-- create a collection of items that the user has agreed to bring from all the parties -->
+    <% useritemlist = @items.where(user_id: @user) %>
+    <!--  loop through this collection and for each item, check if item's party id is equal to the current party, if it it is then add 1 to the partyitemvariable -->
+      <% useritemlist.each do |item| if item.img_url.to_i == party.id then partyitemnumber +=1 end end %>
+  <a href="<%=party_path(party)%>">
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="panel panel-default">
+        <% if partyitemnumber != 0 %>
+        <span class="count tooltipped" data-position="right" data-delay = "50" data-tooltip="Bringing <%= partyitemnumber %> Items">
+          <p><%= partyitemnumber %></p>
+        </span>
+        <% end %>
+        <div class="panel-heading">
+          <% if @users.find(party.host) == @user %>
+          <span class="triangle tooltipped" data-position="bottom" data-delay="50" data-tooltip="Your Event"></span>
+          <% end %>
+          <h3 class="panel-title"><%="#{party.name.split.map(&:capitalize).join(' ')}"%></h3><br>
+          <div class="panel-body">
+            <p>
+              Host:
+              <% a = @users.find(party.host) %>
+              <%= a.name %><br>
+              Date:
+              <%= party.date.strftime("%B %-d, %Y")%>
+              <br>
+              Location:
+              <%= party.location %><br>
+              Time:
+              <%=party.time.strftime('%-l:%M %p')%><br>
+              <%= party.users.length %>
+              Guests
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
   <% end %>
-<% end %>
-</div>
-<div class= "container profile-links"
-<ul>
-  <li> <%= link_to "Start a Party!?", new_party_path, :class => "btn btn-primary btn-block text-center" %></li>
-  <li>
-    <%= link_to 'Delete Account',url_for(action: :destroy,id: @user.id),method: :delete, :class => "btn btn-primary btn-block", data: {confirm: "Are you sure you want to delete your account??"} %>
-  </li>
-</ul>
+  <a href="<%=new_party_path%>">
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="panel-default" >
+        <div class="panel-heading"id = "add-new-event">
+          <h3 class="panel-title"></h3><br>
+            <p>
+              Do You Want To Make A New Event?
+            </p>
+            <img src="<%= asset_path( 'plus-icon.svg' ) %>" class ="center-block addition-icon" id = "plus-icon"/>
+        </div>
+      </div>
+    </div>
+  </a>
 </div>

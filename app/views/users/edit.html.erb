@@ -1,15 +1,38 @@
-<div class="container">
-<h1 class = "text-primary text-center event-text">Edit Profile</h1>
-<%= form_for @user, :html => {:class => "form-group"} do |f| %>
-<%= f.label :name, :class => 'form-control one'%><br>
-<%= f.text_field :name, :class => 'form-control'%><br>
-<%= f.label :email, :class => 'form-control one'%><br>
-<%= f.text_field :email, :class => 'form-control'%><br>
-<%= f.label :username, :class => 'form-control one'%><br>
-<%= f.text_field :username, :class => 'form-control'%><br>
-<%= f.label :password, :class => 'form-control one' %><br>
-<%= f.password_field :password, :class => 'form-control' %><br>
-<%= f.label :password_confirmation, :class => 'form-control one' %><br>
-<%= f.password_field :password_confirmation, :class => 'form-control' %><br>
-<%= f.submit "Update",  class: "btn btn-primary btn-block" %>
-<%end %>
+<div class= "container sign-up">
+  <div class="row-materialize">
+    <h1 class="text-primary text-center event-text">Sign Up</h1>
+    <%= form_for @user, :html => {:class => "col s12"} do |f| %>
+    <div class="row-materialize">
+      <div class="input-field col s12">
+        <%= f.label :name, :id => "first_name"%>
+        <%= f.text_field :name, :class => 'validate', :id => "first_name"%><br>
+      </div>
+    </div>
+    <div class="row-materialize">
+      <div class="input-field col s12">
+        <%= f.label :email, :class => 'validate'%>
+        <%= f.text_field :email, :class => 'validate'%>
+      </div>
+    </div>
+    <div class="row-materialize">
+      <div class="input-field col s12">
+        <%= f.label :username, :class => 'validate'%>
+        <%= f.text_field :username, :class => 'validate'%>
+      </div>
+    </div>
+    <div class="row-materialize">
+      <div class="input-field col s12">
+        <%= f.label :password, :class => 'validate' %>
+        <%= f.password_field :password, :class => 'validate'%>
+      </div>
+    </div>
+    <div class="row-materialize">
+      <div class="input-field col s12">
+        <%= f.label :password_confirmation, :class => 'validate'%>
+        <%= f.password_field :password_confirmation, :class => 'validate'%>
+      </div>
+    </div>
+    <%= f.submit "Sign Up", class: "btn waves-effect waves-light"%>
+    <%end %>
+  </div>
+</div>

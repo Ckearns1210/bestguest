@@ -6,4 +6,9 @@ class Party < ActiveRecord::Base
   validates :location, :presence => {:message => "Event must have a location."}
   validates :time, :presence => {:message => "If you don't put a time, how will people know when to come?"}
   validates :date, :presence => {:message => "What day will this event be?"}
+  # geocoded_by :geo_address
+
+  # after_validation: :geocoded
+
+
 end

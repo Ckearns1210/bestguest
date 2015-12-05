@@ -10,15 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+// = require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap.min
+//= require materialize.min
 //= require_tree .
 
-;(function($){
-  $(function(){
-    $('input.destroy').click(function(){
-      return confirm($(this).attr('data-confirm'));
-    });
-  });
-})(jQuery);
+
+$(document).ready(function(){
+   $('.tooltipped').tooltip({delay: 50});
+ });

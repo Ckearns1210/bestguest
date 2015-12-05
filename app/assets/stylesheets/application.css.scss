@@ -10,81 +10,228 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap.min
  *= require_tree .
  *= require_self
  */
 
+
+.logo-svg {
+  position: absolute;
+  left: 191px;
+  bottom: -195px;
+  min-width: 150px;
+}
+.logo-text {
+  color: #FAFAFA !important;
+  margin-top: -19px;
+}
+.sign-up {
+  max-width: 40%;
+  padding: 75px;
+}
+/* label color */
+.input-field label {
+  color: #FAFAFA;
+  font-size: 12px;
+  font-weight: 500;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #607D8B important;
+  font-weight: 1000;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #607D8B;
+  box-shadow: 0 1px 0 0 #607D8B;
+}
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #607D8B;
+  box-shadow: 0 1px 0 0 #607D8B;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #607D8B;
+  box-shadow: 0 1px 0 0 #607D8B;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #FAFAFA;
+  font-weight: 500;
+}
+#arrow-down {
+  bottom: 50px;
+  left: 50%;
+  text-align: center;
+  position: absolute;
+  max-width: 60px;
+}
+#plus-icon {
+  padding-top: 20px;
+}
+#add-new-event {
+  text-align: center;
+  background: rgba(0,0,0,0.1) !important;
+  border: 1px solid #979797;
+  box-shadow: inset 0 2px 1px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  min-height: 210px;
+}
+#add-new-event-body {
+  background: rgba(0,0,0,0.05) !important;
+  border: 1px solid #979797;
+  box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.50);
+  border-radius: 4px;
+}
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 40px 0 0 40px;
+  border-color: transparent transparent transparent #7CB342;
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+
+  // bottom: 0px !important;
+  // left: 0px !important;
+}
+.add-new-event {
+  text-align: center;
+}
+span.count {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F25454;
+  position: absolute;
+  color: #FAFAFA;
+  top: -12px;
+  right: 0;
+}
+span.count > p {
+  position: absolute;
+  top: 5px;
+  text-align: center;
+  width: 100%;
+}
+div.panel-body {
+  min-height: 150px;
+  background: #F8F8F8;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+h3.panel-title {
+  color: #212121 !important;
+}
 .event-list {
   list-style-type: none;
 }
-
 .invite-block {
   margin-bottom: 75px;
 }
-
 .party-headline {
   font-size: 30px !important;
   margin-top: 50px;
 }
-
 .one {
   background: #7f8c8d !important;
 }
-
- .event-text {
-   margin-top: 75px;
-   margin-bottom: 50px;
- }
-
+.event-text {
+  margin-bottom: 50px;
+  margin-top: -17px;
+  margin-left: 175px;
+}
 .profile-links {
   margin-top: 100px;
   list-style-type: none !important;
 }
-
-
 .profile-headline {
   margin: 50px;
   font-size: 50px !important;
+  position: relative !important;
+  padding: 0 !important;
 }
-
-
 .page-header {
-  color: white;
+  color: #FAFAFA;
 }
-
 .form-headers {
-  color: white !important;
+  color: #FAFAFA !important;
 }
-
 .text-primary {
-  color: white !important;
+  color: #FAFAFA !important;
   font-size: 20px;
+  position: absolute;
+  padding-right: 63px;
 }
-
 .splash-page {
-  margin-top: 50px;
+  margin-top: 225px;
+  padding-right: 59px !important;
 }
-
 body {
-  background: #34495e !important;
-  color: white ;
+  background: #009688 !important;
   background-size: contain;
+  font-family: WorkSans-Light !important;
+  font-color: #fafafa;
 }
-
 .logo {
   height: 200px !important;
   width: 400px !important;
   margin-top: 70px !important;
 }
-
-
-  a:hover {
-      background-color: #818386 !important;
-      color: #313133 !important;
+a:hover {
+  color: #313133 !important;
+}
+a {
+  color: #FAFAFA !important;
+  text-decoration: none !important;
+  list-style-type: none !important;
+}
+@media screen and (max-width: 768px) {
+  .triangle {
+    bottom: 0;
+  }
+  #arrow-down {
+    max-width: 40px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .profile-header {
+    margin: auto !important;
+    padding: auto !important;
+  }
+  .logo-svg {
+    display: none;
+  }
+  .logo-text {
+    color: #FAFAFA !important;
+    margin-top: -170px;
+    text-align: center;
   }
 
-  a {
-    color: white !important;
-    text-decoration: none !important;
-    list-style-type: none !important;
+
+
+  .event-text {
+    text-align: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+
   }
+  .sign-up {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    max-width: 100%;
+    padding: 35px !important;
+    right: 33px;
+  }
+  .event-text {
+
+  }
+}
