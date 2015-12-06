@@ -1,8 +1,8 @@
-<div class="container">
-<h1 class = "text-primary">Login</h1>
-<%= form_tag '/login', :class => 'form-group' do %>
+<div class="container login-1">
+<h1 class = "text-primary login-headline">Login</h1>
+<%= form_tag '/login', :class => 'form-group login-form' do %>
 <div class= "form-headers">Username:</div> <%= text_field_tag :username, "", class: 'form-control' %>
 <div class = "form-headers">Password:</div> <%= password_field_tag :password, "", class: 'form-control'%>
-<%= submit_tag "Submit", class: "btn btn-default"%>
+<%= submit_tag "Submit", class: "btn waves-effect waves-light"%>
 <% end %>
 </div>

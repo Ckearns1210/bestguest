@@ -1,6 +1,6 @@
 <div class= "container sign-up">
   <div class="row-materialize">
-    <h1 class="text-primary text-center event-text">Sign Up</h1>
+    <h1 class="text-primary text-center edit-headline">Edit Account</h1>
     <%= form_for @user, :html => {:class => "col s12"} do |f| %>
     <div class="row-materialize">
       <div class="input-field col s12">
@@ -32,7 +32,7 @@
         <%= f.password_field :password_confirmation, :class => 'validate'%>
       </div>
     </div>
-    <%= f.submit "Sign Up", class: "btn waves-effect waves-light"%>
+    <%= f.submit "Update", class: "btn waves-effect waves-light"%>
     <%end %>
   </div>
 </div>

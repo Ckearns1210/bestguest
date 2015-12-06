@@ -10,12 +10,73 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap.min
+
  *= require_tree .
  *= require_self
  */
 
+.new-party {
+  margin-top: 175px;
+}
 
+
+.waves-effect {
+  background-color: #009688;
+}
+
+.brand-logo {
+  font-family: 'Alegreya', serif;
+  font-weight: bold;
+  padding-left: 19px !important;
+  font-size: 21px !important;
+}
+
+.material-icons {
+  color: black;
+}
+.edit-headline {
+  padding: 0 !important;
+  margin: 0 auto !important;
+  color: #FAFAFA !important;
+  position: static !important;
+}
+.sign-up {
+  padding-top: 150px !important;
+}
+.login-headline {
+  text-align: center;
+  margin: 0 auto;
+  color: #FAFAFA !important;
+}
+.login-form {
+  padding-top: 50px;
+}
+.login-1 {
+  padding-top: 100px;
+}
+.container-login {
+  padding-top: 150px;
+}
+.modal-materialize {
+  box-shadow: none;
+  background-color: transparent;
+}
+.brand-logo {
+  font-size: 21px !important;
+  color: #212121 !important;
+}
+.nav-links {
+  font-size: 16px !important;
+  color: #212121 !important;
+  text-decoration: none !important;
+  list-style-type: none !important;
+}
+.login {
+  padding-top: 90px;
+}
+.splash-text {
+  color: #CFD8DC !important;
+}
 .logo-svg {
   position: absolute;
   left: 191px;
@@ -90,7 +151,7 @@
   height: 0;
   border-style: solid;
   border-width: 40px 0 0 40px;
-  border-color: transparent transparent transparent #7CB342;
+  border-color: transparent transparent transparent #009688;
   position: absolute;
   bottom: 20px;
   left: 15px;
@@ -141,8 +202,13 @@ h3.panel-title {
 }
 .event-text {
   margin-bottom: 50px;
+  padding-top: 60px;
   margin-top: -17px;
   margin-left: 175px;
+  color: #FAFAFA !important;
+}
+#new_user {
+  padding-top: 60px;
 }
 .profile-links {
   margin-top: 100px;
@@ -152,7 +218,8 @@ h3.panel-title {
   margin: 50px;
   font-size: 50px !important;
   position: relative !important;
-  padding: 0 !important;
+  padding-top: 60px !important;
+  color: #FAFAFA !important;
 }
 .page-header {
   color: #FAFAFA;
@@ -161,7 +228,7 @@ h3.panel-title {
   color: #FAFAFA !important;
 }
 .text-primary {
-  color: #FAFAFA !important;
+  color: #FAFAFA;
   font-size: 20px;
   position: absolute;
   padding-right: 63px;
@@ -171,7 +238,7 @@ h3.panel-title {
   padding-right: 59px !important;
 }
 body {
-  background: #009688 !important;
+  background: #607D8B !important;
   background-size: contain;
   font-family: WorkSans-Light !important;
   font-color: #fafafa;
@@ -206,19 +273,15 @@ a {
     display: none;
   }
   .logo-text {
+    padding-top: 58px;
     color: #FAFAFA !important;
     margin-top: -170px;
-    text-align: center;
   }
-
-
-
   .event-text {
     text-align: center;
     margin: 0 !important;
     padding: 0 !important;
     position: relative !important;
-
   }
   .sign-up {
     text-align: center;
@@ -231,7 +294,13 @@ a {
     padding: 35px !important;
     right: 33px;
   }
-  .event-text {
-
+  .edit-headline {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    color: #FAFAFA !important;
+    position: static !important;
+  }
+  .sign-up {
+    padding-top: 150px !important;
   }
 }
