@@ -106,4 +106,10 @@ and contribute one of the following:</h2>
 </div>
 </div>
 <% end %>
-</div>
+
+
+
+<%= form_tag(users_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+<%= submit_tag "Search" %>
+<% end %>

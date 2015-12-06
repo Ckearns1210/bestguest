@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
 include ApplicationHelper
 before_action :authenticate, except: [:new, :create]
+  def index
+    if params[:search]
+      @users = User.where("email iLIKE '%#{params[:search]}%'")
+  else
+    @users = User.all
+  end
+end
   def new
     @user = User.new
   end
@@ -36,9 +43,14 @@ end
 
   def show
     @user = User.find(params[:id])
-    @users = User.all
     @items = Item.all
     @parties = Party.all
+    @users = User.all
+      if params[:search]
+        @users = User.search(params[:search]).order("created_at DESC")
+      else
+        @users = User.all.order('created_at DESC')
+      end
   end
 
   def destroy
