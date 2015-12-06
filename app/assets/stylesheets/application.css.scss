@@ -11,9 +11,19 @@
  * file per style scope.
  *
 
+*= require bootstrap-material-datetimepicker
  *= require_tree .
  *= require_self
  */
+
+.create-event-text {
+  position: static !important;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  color: #FAFAFA !important;
+  margin-bottom: 20px;
+}
 
 .new-party {
   margin-top: 175px;
@@ -21,12 +31,11 @@
 
 
 .waves-effect {
-  background-color: #009688;
+  background-color: #009688 !important;
 }
 
 .brand-logo {
   font-family: 'Alegreya', serif;
-  font-weight: bold;
   padding-left: 19px !important;
   font-size: 21px !important;
 }

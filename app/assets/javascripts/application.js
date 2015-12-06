@@ -15,17 +15,21 @@
 //= require turbolinks
 //= require bootstrap.min
 //= require materialize.min
+//= require material
+//= require moment-with-locales
+//= require bootstrap-material-datetimepicker.js
 //= require_tree .
 
 
 $(document).ready(function() {
-    $(".button-collapse").sideNav();
+  $(".button-collapse").sideNav();
   $('.tooltipped').tooltip({
     delay: 50
   });
   $('.datepicker').pickadate({
-  selectMonths: true, // Creates a dropdown to control month
-  selectYears: 15 // Creates a dropdown of 15 years to control year
-});
-      
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+  $('#party_time').bootstrapMaterialDatePicker({ date: false, shortTime: true, format: "HH:mm" });
+
 });

@@ -7,40 +7,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Best Guest</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-      <%= csrf_meta_tags %>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= csrf_meta_tags %>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.2/css/bootstrap-material-design.css">
+        <link rel=" stylesheet " href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css " integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin=" anonymous ">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons " rel="stylesheet ">
         <link href='https://fonts.googleapis.com/css?family=Alegreya:400,900,700italic,400italic,700' rel='stylesheet' type='text/css'>
 
 </head>
 
 <body>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <% if logged_in? %>
     <nav>
-      <div class="nav wrapper">
-        <%= link_to "Best Guest", user_path(session[:user_id]), class: "brand-logo" %>
-          <a href="/" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
+      <div class="nav wrapper ">
+        <%= link_to "Best Guest ", user_path(session[:user_id]), class: "brand-logo " %>
+          <a href="/ " data-activates="mobile-demo " class="button-collapse "><i class="material-icons ">menu</i></a>
+          <ul class="right hide-on-med-and-down ">
             <li>
-              <%= link_to "Events", user_path(session[:user_id]), class: "nav-links" %>
+              <%= link_to "Events ", user_path(session[:user_id]), class: "nav-links " %>
             </li>
             <li>
-              <%= link_to 'Settings', edit_user_path(session[:user_id]), class: "nav-links" %>
+              <%= link_to 'Settings', edit_user_path(session[:user_id]), class: "nav-links " %>
             </li>
             <li>
-              <%= link_to "Logout", '/logout', class: "nav-links" %>
+              <%= link_to "Logout ", '/logout', class: "nav-links " %>
             </li>
           </ul>
-          <ul class="side-nav" id="mobile-demo">
+          <ul class="side-nav " id="mobile-demo ">
             <li>
-              <%= link_to "Events", user_path(session[:user_id]), class: "nav-links" %>
+              <%= link_to "Events ", user_path(session[:user_id]), class: "nav-links " %>
             </li>
             <li>
-              <%= link_to 'Settings', edit_user_path(session[:user_id]), class: "nav-links" %>
+              <%= link_to 'Settings', edit_user_path(session[:user_id]), class: "nav-links " %>
             </li>
             <li>
-              <%= link_to "Logout", '/logout', class: "nav-links" %>
+              <%= link_to "Logout ", '/logout', class: "nav-links " %>
             </li>
           </ul>
       </div>
@@ -48,22 +49,22 @@
 
     <% else %>
       <nav>
-        <%= link_to "Home", '/signup', class: "brand-logo" %>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
+        <%= link_to "Best Guest ", '/signup', class: "brand-logo " %>
+          <a href="# " data-activates="mobile-demo " class="button-collapse "><i class="material-icons ">menu</i></a>
+          <ul class="right hide-on-med-and-down ">
             <li>
-              <%= link_to 'Login', '/login', class: "nav-links" %>
+              <%= link_to 'Login', '/login', class: "nav-links " %>
             </li>
           </ul>
-          <ul class="side-nav" id="mobile-demo">
+          <ul class="side-nav " id="mobile-demo ">
             <li>
-              <%= link_to 'Login', class: "nav-links" %>
+              <%= link_to 'Login', class: "nav-links " %>
             </li>
           </ul>
           </div>
       </nav>
       <% end %>
-        <div class="container fluid">
+        <div class="container fluid ">
           <%= render partial: "shared/flash_messages", flash: flash %>
 
 
