@@ -1,7 +1,4 @@
 <h1 class="text-primary profile-headline text-center">Your Events</h1>
-<%if current_user.parties == [] %>
-<h1 class="text-primary text-center">You have no upcoming events. Why don't you throw one?</h1>
-<%end %>
 <div class="row equal">
   <% @user.parties.each do |party| %>
     <% partyitemnumber = 0 %>
