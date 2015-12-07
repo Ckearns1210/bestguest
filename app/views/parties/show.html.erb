@@ -1,7 +1,7 @@
 <h1 class="center-align party-headline"><%= @party.name %></h1>
 
 
-<!-- GUEST VIEW -->
+<!-- GUEST VIEW ITEMS BRINGING-->
 <%item_array=[] %>
 <% @items.each do |item| %>
 <% if item.user_id ==  session[:user_id] && item.img_url.to_i == @party.id %>
@@ -23,12 +23,10 @@
       </div>
     </div>
   </div>
-</div>
 <%end %>
 
 
-<!-- HOST VIEW -->
-<div class="row equal">
+<!-- HOST VIEW AND GUEST VIEW INVITED GUESTS-->
   <div class="col-sm-6 col-md-4 col-lg-4">
     <div class="panel-default hoverable">
       <div class="panel-heading parties-heading">
@@ -63,7 +61,7 @@
       </div>
     </div>
   </div>
-  <!-- END OF HOST VIEW -->
+  <!-- HOST VIEW AND GUEST VIEW PARTY DETAILS -->
   <div class="col-sm-6 col-md-4 col-lg-4">
     <div class="panel-default hoverable">
       <div class="panel-heading parties-heading">
@@ -86,6 +84,8 @@
       </div>
     </div>
   </div>
+
+  <!-- HOST VIEW ITEM REQUEST -->
   <% if @user == @party.host %>
   <div class="col-sm-6 col-md-4 col-lg-4">
     <div class="panel-default hoverable">
@@ -106,7 +106,7 @@
   </div>
   <%end %>
 
-  <!-- USER VIEW -->
+  <!-- USER VIEW ITEM REQUEST -->
   <%if @user != @party.host %>
   <div class="col-sm-6 col-md-4 col-lg-4">
     <div class="panel-default hoverable">
