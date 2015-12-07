@@ -1,115 +1,101 @@
-<div class="container">
-  <h1 class="text-primary text-center party-headline"><%= @party.name %></h1>
-  <!-- HOST VIEW -->
-  <% if @user == @party.host %>
-  <h3 class="text-primary text-center event-host">Invite Best Guest Members:</h3>
-  <div class="btn-group btn-block invite-block">
-    <form action="/parties/<%= @party.id %>/add_user" method="post">
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-      <input name="_method" type="hidden" value="put">
-      <select class="form-control" name="user_id">
-        <% @users.each do |user| %>
-        <option value="<%= user.id %>"><%= user.name %></option>
-        <% end %>
-      </select>
-      <input class="btn btn-primary btn-block" type="submit" value="Add User To Party">
-    </form>
-  </div>
-  <div class="col-sm-6 col-md-4 col-lg-3">
+<h1 class="center-align party-headline"><%= @party.name %></h1>
+<!-- HOST VIEW -->
+<div class="row equal">
+  <div class="col-sm-6 col-md-4 col-lg-4">
     <div class="panel-default hoverable">
-      <div class="panel-heading">
+      <div class="panel-heading parties-heading">
+        <% if @user != @party.host %>
+        <h3 class="panel-title">Invited Guests</h3><br>
+        <% end  %>
+          <% if @user == @party.host %>
         <h3 class="panel-title">Your Invited Guests</h3><br>
+        <%end %>
         <div class="panel-body">
           <% @users.each do |user| %>
           <%if user.parties.include?(@party)%>
-          <div class="chip"><%= user.name %></li>
+          <div class="chip"><%= user.name %>
+          </div>
+          <% end %>
+          <% end %>
+            <% if @user == @party.host %>
+          <div class="input field col s12 invite-block">
+            <form action="/parties/<%= @party.id %>/add_user" method="post">
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+              <input name="_method" type="hidden" value="put">
+              <select class="form-control" name="user_id">
+                <% @users.each do |user| %>
+                <option value="<%= user.id %>"><%= user.name %></option>
+                <% end %>
+              </select>
+              <input class="btn waves-effect waves-light add-user-to-party" type="submit" value="Add User To Party">
+            </form>
+          </div>
+          <%end %>
         </div>
-        <% end %>
-        <% end %>
-
       </div>
     </div>
   </div>
-  <% end %>
-</div>
-<!-- END OF HOST VIEW -->
-<div class="col-sm-6 col-md-4 col-lg-3">
-  <div class="panel-default hoverable">
-    <div class="panel-heading">
-      <h3 class="panel-title">Event Details</h3><br>
-      <div class="panel-body">
-        <p>
-          Date:
-          <%= @party.date.strftime("%B %-d, %Y")%>
-          <br>
-          Location:
-          <%= @party.location %><br>
-          Time:
-          <%=@party.time.strftime('%-l:%M %p')%><br>
-        </p>
-        <!-- HOST VIEW -->
-        <%if @user == @party.host %>
-        <%= link_to 'Edit', edit_party_path(@party), :class => "btn waves-effect waves-light"%>
-        <% end %>
+  <!-- END OF HOST VIEW -->
+  <div class="col-sm-6 col-md-4 col-lg-4">
+    <div class="panel-default hoverable">
+      <div class="panel-heading parties-heading">
+        <h3 class="panel-title">Event Details</h3><br>
+        <div class="panel-body">
+          <p>
+            Date:
+            <%= @party.date.strftime("%B %-d, %Y")%>
+            <br>
+            Location:
+            <%= @party.location %><br>
+            Time:
+            <%=@party.time.strftime('%-l:%M %p')%><br>
+          </p>
+          <!-- HOST VIEW -->
+          <%if @user == @party.host %>
+          <%= link_to 'Edit', edit_party_path(@party), :class => "btn waves-effect waves-light"%>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <% if @user == @party.host %>
+  <div class="col-sm-6 col-md-4 col-lg-4">
+    <div class="panel-default hoverable">
+      <div class="panel-heading parties-heading">
+        <h3 class="panel-title">Requested Items</h3><br>
+        <div class="panel-body">
+          <% if @party.items == [] %>
+          <p>
+            None requested!
+          </p>
+          <% else %>
+          <%= render partial: 'parties/item', collection: @party.items %>
+          <%end %>
+          <%= render partial: 'items/form' %>
+          <%end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <!-- USER VIEW -->
 <%if @user != @party.host %>
-<h2 class="text-primary text-center">Some of your friends have already been invited. Check out who:</h2>
-<div class="container">
-  <% @users.each do |user| %>
-  <%if user.parties.include?(@party)%>
-  <ul class="list-group">
-    <li class="list-group-item text-center"><%= user.name %></h3>
-</ul>
-<% end %>
-<% end %>
+<div class="col-sm-6 col-md-4 col-lg-4">
+<div class="panel-default hoverable">
+  <div class="panel-heading parties-heading">
+    <h3 class="panel-title">Requested Items</h3><br>
+    <div class="panel-body">
+      <% if @party.items == [] %>
+      <p>
+        None requested!
+      </p>
+      <% else %>
+      <%= render partial: 'parties/item', collection: @party.items %>
+      <%end %>
+    </div>
+  </div>
 </div>
-<%if @party.items != [] %>
-<h2 class="text-primary text-center"><%= User.find(@party.host).name.capitalize.split(" ")[0] %>
-hopes you will be the
-<em>Best Guest</em>
-and contribute one of the following:</h2>
-<%end %>
-<%end %>
-<!-- HOST VIEW -->
-<div class="container">
-<% if @user == @party.host %>
-<h2 class="text-primary text-center">Items You Are Requesting Guests Bring:</h2>
-<%= render partial: 'parties/item', collection: @party.items %>
+</div>
 <%end %>
 </div>
-<!-- USER VIEW -->
-<!-- Button To Claim Item -->
-<div class="container">
-<%if @user != @party.host %>
-<% @party.items.each do |item| %>
-<% @item = item %>
-<%= link_to claim_item_party_item_path(@party, @item),  method: :patch,  data: { confirm: 'Are you sure you want to bring this item?' } do %>
-<button class="btn btn-primary btn block text-center center-block">Bring
-<%= @item.name %></button>
-<% end %>
-<% end %>
-<% end %>
-</div>
-<!-- HOST VIEW -->
-<%if @user == @party.host %>
-<div class="container">
-<h2 class="text-primary text-center">Add An Item You Need For Your Party</h2>
-<%= render partial: 'items/form' %>
-</div>
-<div class="container">
-<div class="container">
-<%= link_to 'Edit This Party', edit_party_path(@party), :class => "btn btn-primary btn-block"%>
-</div>
-</div>
-<% end %>
-
-
-
-<%= form_tag(users_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
-<%= submit_tag "Search" %>
-<% end %>

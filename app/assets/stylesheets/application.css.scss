@@ -16,6 +16,37 @@
  *= require_self
  */
 
+ .party-headline {
+   margin-top: 102px !important;
+   color: #FAFAFA;
+   margin-bottom: -81px;
+ }
+.request-item {
+  margin-top: 25px;
+}
+
+
+ .waves-circle {
+   display: inline;
+   float: right;
+ }
+
+
+.request-item-label, .create-item-field {
+  color: black !important;
+}
+
+ .btn {
+   color: #FAFAFA !important;
+ }
+.parties-heading {
+  margin-top: 150px !important;
+}
+
+ .invite-block {
+   margin-top: 30px !important;
+ }
+
  .alert {
    margin-top: 75px;
  }
@@ -275,6 +306,10 @@ a {
   list-style-type: none !important;
 }
 @media screen and (max-width: 768px) {
+  .profile-headline {
+    padding: 0 !important;
+    margin-top : 75px !important;
+  }
   .triangle {
     bottom: 0;
   }

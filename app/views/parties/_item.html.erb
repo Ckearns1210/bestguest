@@ -1,8 +1,5 @@
-<div class ="container">
-  <ul class = "text-center">
-    <li class = "list-group-item text-center"><%= item.name %></li>
-  </ul>
+<div class = "chip"><%= item.name %></li>
   <% if @user == @party.host %>
-  <%= link_to 'Delete This Item', [item.party, item], method: :delete, :class => "btn btn-primary btn-block", data: {confirm: 'Are you sure?'}%>
+  <%= link_to "<i class='material-icons'> close </i>".html_safe, [item.party, item], method: :delete, data: {confirm: 'Are you sure you want to delete this item?'}%>
   <% end %>
 </div>

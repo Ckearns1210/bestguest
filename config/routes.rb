@@ -10,6 +10,7 @@ resources :users
 resources :parties do
   member do
   put 'add_user'
+  put 'remove_user'
   end
   resources :items do
     member do

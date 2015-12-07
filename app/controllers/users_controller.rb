@@ -1,13 +1,7 @@
 class UsersController < ApplicationController
 include ApplicationHelper
 before_action :authenticate, except: [:new, :create]
-  def index
-    if params[:search]
-      @users = User.where("email iLIKE '%#{params[:search]}%'")
-  else
-    @users = User.all
-  end
-end
+
   def new
     @user = User.new
   end
@@ -59,6 +53,7 @@ end
     @user.destroy
     redirect_to root_path
   end
+
 
 private
 

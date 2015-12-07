@@ -61,6 +61,16 @@ end
   end
   end
 
+  def remove_user
+    @party = Party.find(params[:party])
+    @user = user.find(params[:user])
+    if user.parties.include?(party)
+      user.parties.delete(party)
+      flash[:alert] = "# {user.name} has been removed from your event."
+    render party_path(party)
+  end
+end
+
 
   private
 
