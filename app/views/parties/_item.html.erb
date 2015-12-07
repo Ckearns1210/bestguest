@@ -2,4 +2,9 @@
   <% if @user == @party.host %>
   <%= link_to "<i class='material-icons'> close </i>".html_safe, [item.party, item], method: :delete, data: {confirm: 'Are you sure you want to delete this item?'}%>
   <% end %>
+  <% if @user != @party.host %>
+  <% @item = item %>
+  <%= link_to "<i class='material-icons'>add</i>".html_safe,  claim_item_party_item_path(@party, @item),  method: :patch,  data: { confirm: 'Are you sure you want to bring this item?' }%>
+
+  <% end %>
 </div>

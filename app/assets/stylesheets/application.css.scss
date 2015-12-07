@@ -15,6 +15,11 @@
  *= require_tree .
  *= require_self
  */
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+
+.logo-text {
+  font-family: 'Roboto Slab', serif;
+}
 
  .party-headline {
    margin-top: 102px !important;
@@ -74,10 +79,11 @@
 }
 
 .brand-logo {
-  font-family: 'Alegreya', serif;
+  font-family: 'Roboto Slab', serif;
   padding-left: 19px !important;
   font-size: 21px !important;
   color: #313133 !important;
+  font-weight: bold;
 }
 
 .material-icons {
@@ -93,6 +99,7 @@
   padding-top: 150px !important;
 }
 .login-headline {
+  font-family: 'Roboto Slab', serif;
   text-align: center;
   margin: 0 auto;
   color: #FAFAFA !important;
@@ -235,6 +242,7 @@ div.panel-body {
 }
 h3.panel-title {
   color: #212121 !important;
+  font-family: 'Roboto Slab', serif;
 }
 .event-list {
   list-style-type: none;
@@ -255,6 +263,7 @@ h3.panel-title {
   margin-top: -17px;
   margin-left: 175px;
   color: #FAFAFA !important;
+  font-family: 'Roboto Slab', serif;
 }
 #new_user {
   padding-top: 60px;
@@ -264,6 +273,7 @@ h3.panel-title {
   list-style-type: none !important;
 }
 .profile-headline {
+  font-family: 'Roboto Slab', serif;
   margin: 50px;
   font-size: 50px !important;
   position: relative !important;
@@ -325,7 +335,9 @@ a {
   .logo-svg {
     display: none;
   }
+
   .logo-text {
+    font-family: 'Roboto Slab', serif;
     padding-top: 58px;
     color: #FAFAFA !important;
     margin-top: -170px;

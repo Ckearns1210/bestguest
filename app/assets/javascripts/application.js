@@ -20,9 +20,7 @@
 //= require bootstrap-material-datetimepicker.js
 //= require_tree .
 
-
 $(document).ready(function() {
-  $(".button-collapse").sideNav();
   $('.tooltipped').tooltip({
     delay: 50
   });
@@ -31,5 +29,6 @@ $(document).ready(function() {
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
   $('#party_time').bootstrapMaterialDatePicker({ date: false, shortTime: true, format: "HH:mm" });
+  $(".button-collapse").sideNav();
 
 });

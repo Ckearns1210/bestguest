@@ -1,4 +1,32 @@
 <h1 class="center-align party-headline"><%= @party.name %></h1>
+
+
+<!-- GUEST VIEW -->
+<%item_array=[] %>
+<% @items.each do |item| %>
+<% if item.user_id ==  session[:user_id] && item.img_url.to_i == @party.id %>
+<%item_array.push(item)  %>
+<%end %>
+<%end %>
+<% if @user != @party.host && item_array !=[]%>
+<div class="row equal">
+  <div class="col-sm-6 col-md-4 col-lg-4">
+    <div class="panel-default hoverable">
+      <div class="panel-heading parties-heading">
+        <h3 class="panel-title">Items You Are Bringing</h3><br>
+        <div class="panel-body">
+          <% item_array.each do |item| %>
+          <div class="chip"><%= item.name %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%end %>
+
+
 <!-- HOST VIEW -->
 <div class="row equal">
   <div class="col-sm-6 col-md-4 col-lg-4">
@@ -7,7 +35,7 @@
         <% if @user != @party.host %>
         <h3 class="panel-title">Invited Guests</h3><br>
         <% end  %>
-          <% if @user == @party.host %>
+        <% if @user == @party.host %>
         <h3 class="panel-title">Your Invited Guests</h3><br>
         <%end %>
         <div class="panel-body">
@@ -17,7 +45,7 @@
           </div>
           <% end %>
           <% end %>
-            <% if @user == @party.host %>
+          <% if @user == @party.host %>
           <div class="input field col s12 invite-block">
             <form action="/parties/<%= @party.id %>/add_user" method="post">
               <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -72,30 +100,29 @@
           <%= render partial: 'parties/item', collection: @party.items %>
           <%end %>
           <%= render partial: 'items/form' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%end %>
+
+  <!-- USER VIEW -->
+  <%if @user != @party.host %>
+  <div class="col-sm-6 col-md-4 col-lg-4">
+    <div class="panel-default hoverable">
+      <div class="panel-heading parties-heading">
+        <h3 class="panel-title">Bring Something:</h3><br>
+        <div class="panel-body">
+          <% if @party.items == [] %>
+          <p>
+            None requested!
+          </p>
+          <% else %>
+          <%= render partial: 'parties/item', collection: @party.items %>
           <%end %>
         </div>
       </div>
     </div>
   </div>
-
-
-<!-- USER VIEW -->
-<%if @user != @party.host %>
-<div class="col-sm-6 col-md-4 col-lg-4">
-<div class="panel-default hoverable">
-  <div class="panel-heading parties-heading">
-    <h3 class="panel-title">Requested Items</h3><br>
-    <div class="panel-body">
-      <% if @party.items == [] %>
-      <p>
-        None requested!
-      </p>
-      <% else %>
-      <%= render partial: 'parties/item', collection: @party.items %>
-      <%end %>
-    </div>
-  </div>
-</div>
-</div>
-<%end %>
+  <%end %>
 </div>

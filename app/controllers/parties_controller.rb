@@ -11,6 +11,7 @@ class PartiesController < ApplicationController
     @item.party_id = @party.id
     @users = User.all
     @user = session[:user_id]
+    @items = Item.all
   end
 
 

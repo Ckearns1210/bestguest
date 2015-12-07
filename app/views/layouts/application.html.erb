@@ -20,8 +20,8 @@
   <% if logged_in? %>
     <nav>
       <div class="nav wrapper ">
-        <%= link_to "Best Guest ", user_path(session[:user_id]), class: "brand-logo " %>
-          <a href="/ " data-activates="mobile-demo " class="button-collapse "><i class="material-icons ">menu</i></a>
+        <%= link_to "Best Guest ", user_path(session[:user_id]), class: "brand-logo" %>
+           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down ">
             <li>
               <%= link_to "Events ", user_path(session[:user_id]), class: "nav-links " %>
@@ -33,7 +33,7 @@
               <%= link_to "Logout ", '/logout', class: "nav-links " %>
             </li>
           </ul>
-          <ul class="side-nav " id="mobile-demo ">
+          <ul class="side-nav" id="mobile-demo ">
             <li>
               <%= link_to "Events ", user_path(session[:user_id]), class: "nav-links " %>
             </li>
@@ -48,20 +48,23 @@
     </nav>
 
     <% else %>
+
       <nav>
+        <div class="nav wrapper">
         <%= link_to "Best Guest ", '/signup', class: "brand-logo " %>
-          <a href="# " data-activates="mobile-demo " class="button-collapse "><i class="material-icons ">menu</i></a>
+          <a href="#" data-activates="mobile-demo " class="button-collapse "><i class="material-icons ">menu</i></a>
           <ul class="right hide-on-med-and-down ">
             <li>
               <%= link_to 'Login', '/login', class: "nav-links " %>
             </li>
           </ul>
-          <ul class="side-nav " id="mobile-demo ">
+          <ul class="side-nav" id="mobile-demo ">
             <li>
-              <%= link_to 'Login', class: "nav-links " %>
+              <%= link_to 'Login', '/login', class: "nav-links " %>
             </li>
           </ul>
           </div>
+      </div>
       </nav>
       <% end %>
         <div class="container fluid ">

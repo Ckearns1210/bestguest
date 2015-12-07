@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-root to: 'pages#splash'
+root to: 'users#new'
 get '/signup' => 'users#new'
 post 'users' => 'users#create'
 
