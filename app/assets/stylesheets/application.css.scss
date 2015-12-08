@@ -17,6 +17,10 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
 
+.dtp-btn-cancel, .dtp-btn-ok {
+  color: #26a69a !important;
+}
+
 #user-item-request, #guest-view-invited {
   margin-top: 30px !important;
 }
@@ -372,4 +376,8 @@ a {
   .sign-up {
     padding-top: 150px !important;
   }
+}
+
+.dtp-btn-cancel, .dtp-btn-ok {
+  color: #26a69a !important;
 }
