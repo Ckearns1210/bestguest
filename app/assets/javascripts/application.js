@@ -31,4 +31,5 @@ $(document).ready(function() {
   $('#party_time').bootstrapMaterialDatePicker({ date: false, shortTime: true, format: "HH:mm" });
   $(".button-collapse").sideNav();
 
+
 });

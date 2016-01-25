@@ -1,0 +1,49 @@
+<% if logged_in? %>
+  <nav>
+    <div class="nav wrapper ">
+         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down ">
+          <li>
+            <%= link_to "Events ", user_path(session[:user_id]), class: "nav-links " %>
+          </li>
+          <li>
+            <%= link_to 'Settings', edit_user_path(session[:user_id]), class: "nav-links " %>
+          </li>
+          <li>
+            <%= link_to "Logout ", '/logout', class: "nav-links " %>
+          </li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo ">
+          <li>
+            <%= link_to "Events ", user_path(session[:user_id]), class: "nav-links " %>
+          </li>
+          <li>
+            <%= link_to 'Settings', edit_user_path(session[:user_id]), class: "nav-links " %>
+          </li>
+          <li>
+            <%= link_to "Logout ", '/logout', class: "nav-links " %>
+          </li>
+        </ul>
+    </div>
+  </nav>
+
+  <% else %>
+    <nav>
+      <div class="nav wrapper">
+        <a href="#" data-activates="mobile-demo " class="button-collapse "><i class="material-icons ">menu</i></a>
+        <ul class="right hide-on-med-and-down ">
+          <li>
+            <%= link_to 'Login', '/login', class: "nav-links " %>
+          </li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo ">
+          <li>
+            <%= link_to 'Login', '/login', class: "nav-links " %>
+          </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+    <% end %>
+      <div class="container fluid ">
+        <%= render partial: "shared/flash_messages", flash: flash %>

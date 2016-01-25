@@ -10,27 +10,85 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-
+*= require materialize.css
+*= require bootstrap.css
+ *= require_self
 *= require bootstrap-material-datetimepicker
  *= require_tree .
- *= require_self
  */
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+
+@font-face {
+  font-family: 'gt';
+  src: url(font_path('gt.ttf')) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ @font-face {
+     font-family: 'markregular';
+     src: url(font_path('markregular-webfont.eot')) format('embedded-opentype'),
+          url(font_path('markregular-webfont.woff2')) format('woff2'),
+          url(font_path('markregular-webfont.woff')) format('woff'),
+          url(font_path('markregular-webfont.ttf')) format('truetype'),
+          url(font_path('markregular-webfont.svg#markregular')) format('svg');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+ @font-face {
+     font-family: 'leituradisplay';
+     src: url(font_path('leituradisplay-roman-webfont.eot')) format('embedded-opentype'),
+          url(font_path('leituradisplay-roman-webfont.woff2')) format('woff2'),
+          url(font_path('leituradisplay-roman-webfont.woff')) format('woff'),
+          url(font_path('leituradisplay-roman-webfont.ttf')) format('truetype'),
+          url(font_path('leituradisplay-roman-webfont.svg#markregular')) format('svg');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+
+ input:-webkit-autofill {
+     -webkit-box-shadow: 0 0 0px 1000px #607D8B inset !important;
+     -webkit-text-fill-color: #FAFAFA !important;
+ }
+
+
+
+ nav {
+   background-color: transparent;
+   box-shadow: none ;
+   font-family: 'markregular' ;
+   color: #FAFAFA ;
+   position: relative ;
+ }
+
+ body {
+   box-sizing: border-box;
+   background: #607D8B ;
+   background-size: contain;
+   font-family: 'WorkSans-Light' ;
+
+ }
 
 .dtp-btn-cancel, .dtp-btn-ok {
-  color: #26a69a !important;
+  color: #26a69a ;
 }
 
 #user-item-request, #guest-view-invited {
-  margin-top: 30px !important;
+  margin-top: 30px ;
 }
 
 .logo-text {
-  font-family: 'Roboto Slab', serif;
+  // font-family: 'Roboto Slab', serif;
+  font-family: 'leituradisplay', sans-serif;
+  font-weight: normal ;
+
 }
 
  .party-headline {
-   margin-top: 102px !important;
+   margin-top: 102px ;
    color: #FAFAFA;
    margin-bottom: -81px;
  }
@@ -46,18 +104,18 @@
 
 
 .request-item-label, .create-item-field {
-  color: black !important;
+  color: black ;
 }
 
  .btn {
-   color: #FAFAFA !important;
+   color: #FAFAFA ;
  }
 .parties-heading {
-  margin-top: 150px !important;
+  margin-top: 150px ;
 }
 
  .invite-block {
-   margin-top: 30px !important;
+   margin-top: 30px ;
  }
 
  .alert {
@@ -69,28 +127,29 @@
  }
 
 .create-event-text {
-  position: static !important;
+  position: static ;
   margin: 0;
   padding: 0;
   margin-top: 20px;
-  color: #FAFAFA !important;
+  color: #FAFAFA ;
   margin-bottom: 20px;
 }
 
 .new-party {
   margin-top: 175px;
+  width: 75%
 }
 
 
 .waves-effect {
-  background-color: #009688 !important;
+  background-color: #009688 ;
 }
 
 .brand-logo {
-  font-family: 'Roboto Slab', serif;
-  padding-left: 19px !important;
-  font-size: 21px !important;
-  color: #313133 !important;
+  font-family: 'markregular', serif;
+  padding-left: 19px ;
+  font-size: 21px ;
+  color: #313133 ;
   font-weight: bold;
 }
 
@@ -98,22 +157,25 @@
   color: black;
 }
 .edit-headline {
-  padding: 0 !important;
-  margin: 0 auto !important;
-  color: #FAFAFA !important;
-  position: static !important;
+  padding: 0 ;
+  margin: 0 auto ;
+  color: #FAFAFA ;
+  position: static ;
 }
 .sign-up {
-  padding-top: 150px !important;
+  padding-top: 100px ;
 }
 .login-headline {
   font-family: 'Roboto Slab', serif;
   text-align: center;
   margin: 0 auto;
-  color: #FAFAFA !important;
+  color: #FAFAFA ;
+  padding-right: 50px;
 }
 .login-form {
   padding-top: 50px;
+  max-width: 50%;
+  margin: 0 auto;
 }
 .login-1 {
   padding-top: 100px;
@@ -126,20 +188,20 @@
   background-color: transparent;
 }
 .brand-logo {
-  font-size: 21px !important;
-  color: #212121 !important;
+  font-size: 21px ;
+  color: #212121 ;
 }
 .nav-links {
-  font-size: 16px !important;
-  color: #212121 !important;
-  text-decoration: none !important;
-  list-style-type: none !important;
+  font-size: 16px ;
+  color: #FAFAFA ;
+  text-decoration: none ;
+  list-style-type: none ;
 }
 .login {
   padding-top: 90px;
 }
 .splash-text {
-  color: #CFD8DC !important;
+  color: #CFD8DC ;
 }
 .logo-svg {
   position: absolute;
@@ -148,43 +210,64 @@
   min-width: 150px;
 }
 .logo-text {
-  color: #FAFAFA !important;
+  color: #FAFAFA ;
   margin-top: -19px;
 }
 .sign-up {
-  max-width: 40%;
+  max-width: 50%;
   padding: 75px;
 }
 /* label color */
 .input-field label {
-  color: #FAFAFA;
+  color: #FAFAFA ;
   font-size: 12px;
   font-weight: 500;
 }
 /* label focus color */
 .input-field input[type=text]:focus + label {
-  color: #607D8B important;
+  color: #FAFAFA ;
   font-weight: 1000;
 }
 /* label underline focus color */
 .input-field input[type=text]:focus {
-  border-bottom: 1px solid #607D8B;
-  box-shadow: 0 1px 0 0 #607D8B;
+  border-bottom: 1px solid #FAFAFA ;
+  box-shadow: 0 1px 0 0 #FAFAFA ;
 }
 /* valid color */
 .input-field input[type=text].valid {
-  border-bottom: 1px solid #607D8B;
-  box-shadow: 0 1px 0 0 #607D8B;
+  border-bottom: 1px solid #FAFAFA ;
+  box-shadow: 0 1px 0 0 #FAFAFA ;
 }
 /* invalid color */
 .input-field input[type=text].invalid {
-  border-bottom: 1px solid #607D8B;
-  box-shadow: 0 1px 0 0 #607D8B;
+  border-bottom: 1px solid #FAFAFA ;
+  box-shadow: 0 1px 0 0 #FAFAFA ;
 }
 /* icon prefix focus color */
 .input-field .prefix.active {
-  color: #FAFAFA;
+  color: #FAFAFA ;
   font-weight: 500;
+}
+
+/* label focus color */
+.input-field input[type=password]:focus + label {
+  color: #FAFAFA ;
+  font-weight: 1000;
+}
+/* label underline focus color */
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid #FAFAFA ;
+  box-shadow: 0 1px 0 0 #FAFAFA ;
+}
+/* valid color */
+.input-field input[type=password].valid {
+  border-bottom: 1px solid #FAFAFA ;
+  box-shadow: 0 1px 0 0 #FAFAFA ;
+}
+/* invalid color */
+.input-field input[type=password].invalid {
+  border-bottom: 1px solid #FAFAFA ;
+  box-shadow: 0 1px 0 0 #FAFAFA ;
 }
 #arrow-down {
   bottom: 50px;
@@ -198,14 +281,14 @@
 }
 #add-new-event {
   text-align: center;
-  background: rgba(0,0,0,0.1) !important;
+  background: rgba(0,0,0,0.1) ;
   border: 1px solid #979797;
   box-shadow: inset 0 2px 1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   min-height: 210px;
 }
 #add-new-event-body {
-  background: rgba(0,0,0,0.05) !important;
+  background: rgba(0,0,0,0.05) ;
   border: 1px solid #979797;
   box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.50);
   border-radius: 4px;
@@ -220,8 +303,8 @@
   bottom: 20px;
   left: 15px;
 
-  // bottom: 0px !important;
-  // left: 0px !important;
+  // bottom: 0px ;
+  // left: 0px ;
 }
 .add-new-event {
   text-align: center;
@@ -249,7 +332,7 @@ div.panel-body {
   border-radius: 4px;
 }
 h3.panel-title {
-  color: #212121 !important;
+  color: #212121 ;
   font-family: 'Roboto Slab', serif;
 }
 .event-list {
@@ -259,74 +342,65 @@ h3.panel-title {
   margin-bottom: 75px;
 }
 .party-headline {
-  font-size: 30px !important;
+  font-size: 30px ;
   margin-top: 50px;
 }
 .one {
-  background: #7f8c8d !important;
+  background: #7f8c8d ;
 }
 .event-text {
-  margin-bottom: 50px;
-  padding-top: 60px;
-  margin-top: -17px;
-  margin-left: 175px;
-  color: #FAFAFA !important;
-  font-family: 'Roboto Slab', serif;
+  position: relative;
+  color: #FAFAFA ;
+  font-family: 'markregular', serif;
 }
 #new_user {
-  padding-top: 60px;
+  color: #FAFAFA;
 }
 .profile-links {
   margin-top: 100px;
-  list-style-type: none !important;
+  list-style-type: none ;
 }
 .profile-headline {
   font-family: 'Roboto Slab', serif;
   margin: 50px;
-  font-size: 50px !important;
-  position: relative !important;
-  padding-top: 60px !important;
-  color: #FAFAFA !important;
+  font-size: 50px ;
+  position: relative ;
+  padding-top: 60px ;
+  color: #FAFAFA ;
 }
 .page-header {
   color: #FAFAFA;
 }
 .form-headers {
-  color: #FAFAFA !important;
+  color: #FAFAFA ;
 }
 .text-primary {
   color: #FAFAFA;
   font-size: 20px;
-  position: absolute;
   padding-right: 63px;
 }
 .splash-page {
-  margin-top: 225px;
-  padding-right: 59px !important;
+  margin-top: 250px;
+  padding-right: 59px ;
 }
-body {
-  background: #607D8B !important;
-  background-size: contain;
-  font-family: WorkSans-Light !important;
-  font-color: #fafafa;
-}
+
 .logo {
-  height: 200px !important;
-  width: 400px !important;
-  margin-top: 70px !important;
+  height: 200px ;
+  width: 400px ;
+  margin-top: 70px ;
 }
 a:hover {
-  color: #313133 !important;
+  color: #FAFAFA ;
 }
 a {
-  color: #FAFAFA !important;
-  text-decoration: none !important;
-  list-style-type: none !important;
+  color: #FAFAFA ;
+  text-decoration: none ;
+  list-style-type: none ;
 }
 @media screen and (max-width: 768px) {
   .profile-headline {
-    padding: 0 !important;
-    margin-top : 75px !important;
+    padding: 0 ;
+    margin-top : 75px ;
   }
   .triangle {
     bottom: 0;
@@ -337,8 +411,8 @@ a {
 }
 @media screen and (max-width: 992px) {
   .profile-header {
-    margin: auto !important;
-    padding: auto !important;
+    margin: auto ;
+    padding: auto ;
   }
   .logo-svg {
     display: none;
@@ -347,15 +421,10 @@ a {
   .logo-text {
     font-family: 'Roboto Slab', serif;
     padding-top: 58px;
-    color: #FAFAFA !important;
+    color: #FAFAFA ;
     margin-top: -170px;
   }
-  .event-text {
-    text-align: center;
-    margin: 0 !important;
-    padding: 0 !important;
-    position: relative !important;
-  }
+
   .sign-up {
     text-align: center;
     margin: 0 auto;
@@ -364,20 +433,18 @@ a {
     margin-bottom: 0;
     margin-left: auto;
     max-width: 100%;
-    padding: 35px !important;
+    padding: 100px ;
     right: 33px;
   }
   .edit-headline {
-    padding: 0 !important;
-    margin: 0 auto !important;
-    color: #FAFAFA !important;
-    position: static !important;
+    padding: 0 ;
+    margin: 0 auto ;
+    color: #FAFAFA ;
+    position: static ;
   }
-  .sign-up {
-    padding-top: 150px !important;
-  }
+
 }
 
 .dtp-btn-cancel, .dtp-btn-ok {
-  color: #26a69a !important;
+  color: #26a69a ;
 }
