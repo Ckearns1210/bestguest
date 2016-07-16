@@ -29,7 +29,6 @@ $(document).ready(function() {
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
   $('#party_time').bootstrapMaterialDatePicker({ date: false, shortTime: true, format: "HH:mm" });
-  $(".button-collapse").sideNav();
 
-
+$(".button-collapse").sideNav();
 });

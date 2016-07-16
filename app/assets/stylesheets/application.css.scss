@@ -72,6 +72,14 @@
 
  }
 
+ .banner-copy {
+   font-size: 16px !important;
+ }
+
+ .sign-in-instructions {
+   font-size: 14px !important;
+ }
+
 .dtp-btn-cancel, .dtp-btn-ok {
   color: #26a69a ;
 }
@@ -87,6 +95,9 @@
 
 }
 
+.side-nav a {
+  font-size: 16px;
+}
  .party-headline {
    margin-top: 102px ;
    color: #FAFAFA;
@@ -211,7 +222,7 @@
 }
 .logo-text {
   color: #FAFAFA ;
-  margin-top: -19px;
+  margin-top: -100px;
 }
 .sign-up {
   max-width: 50%;
@@ -225,23 +236,23 @@
 }
 /* label focus color */
 .input-field input[type=text]:focus + label {
-  color: #FAFAFA ;
+  color: #009688 ;
   font-weight: 1000;
 }
 /* label underline focus color */
 .input-field input[type=text]:focus {
-  border-bottom: 1px solid #FAFAFA ;
-  box-shadow: 0 1px 0 0 #FAFAFA ;
+  border-bottom: 1px solid #009688 ;
+  box-shadow: 0 1px 0 0 #009688 ;
 }
 /* valid color */
 .input-field input[type=text].valid {
-  border-bottom: 1px solid #FAFAFA ;
-  box-shadow: 0 1px 0 0 #FAFAFA ;
+  border-bottom: 1px solid #009688 ;
+  box-shadow: 0 1px 0 0 #009688 ;
 }
 /* invalid color */
 .input-field input[type=text].invalid {
-  border-bottom: 1px solid #FAFAFA ;
-  box-shadow: 0 1px 0 0 #FAFAFA ;
+  border-bottom: 1px solid #009688 ;
+  box-shadow: 0 1px 0 0 #009688 ;
 }
 /* icon prefix focus color */
 .input-field .prefix.active {
@@ -268,6 +279,15 @@
 .input-field input[type=password].invalid {
   border-bottom: 1px solid #FAFAFA ;
   box-shadow: 0 1px 0 0 #FAFAFA ;
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+  color: #FAFAFA;
+  font-size: 16px;
+}
+
+#item_name {
+  color: #222;
 }
 #arrow-down {
   bottom: 50px;
@@ -390,7 +410,7 @@ h3.panel-title {
   margin-top: 70px ;
 }
 a:hover {
-  color: #FAFAFA ;
+  color: #009688 ;
 }
 a {
   color: #FAFAFA ;
@@ -398,6 +418,11 @@ a {
   list-style-type: none ;
 }
 @media screen and (max-width: 768px) {
+
+  .banner-copy {
+    display: none;
+  }
+
   .profile-headline {
     padding: 0 ;
     margin-top : 75px ;
@@ -433,8 +458,9 @@ a {
     margin-bottom: 0;
     margin-left: auto;
     max-width: 100%;
-    padding: 100px ;
-    right: 33px;
+      padding: initial;
+      right: initial;
+
   }
   .edit-headline {
     padding: 0 ;
@@ -443,8 +469,19 @@ a {
     position: static ;
   }
 
+
+
 }
 
 .dtp-btn-cancel, .dtp-btn-ok {
   color: #26a69a ;
+}
+
+.github {
+  width: 32px;
+  height: 32px;
+  position: fixed;
+  bottom: 16px;
+  right: 23px;
+  z-index: 11;
 }

@@ -23,6 +23,7 @@ class PartiesController < ApplicationController
     @party = Party.new(party_params)
     @party.host = session[:user_id]
     if @party.save
+
       user = User.find(session[:user_id])
       user.parties << @party
       redirect_to party_path(@party)
@@ -76,7 +77,7 @@ end
   private
 
   def party_params
-    params.require(:party).permit(:location, :date, :time, :name)
+    params.require(:party).permit(:address, :date, :time, :name)
   end
 
 end
