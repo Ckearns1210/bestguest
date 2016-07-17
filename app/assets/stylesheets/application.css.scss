@@ -419,6 +419,8 @@ a {
 }
 @media screen and (max-width: 768px) {
 
+
+
   .banner-copy {
     display: none;
   }
@@ -435,6 +437,11 @@ a {
   }
 }
 @media screen and (max-width: 992px) {
+
+  .splash-page {
+    margin-top: 150px;
+  }
+  
   .profile-header {
     margin: auto ;
     padding: auto ;
