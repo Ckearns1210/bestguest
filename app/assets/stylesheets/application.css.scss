@@ -72,6 +72,10 @@
 
  }
 
+ .hidden-mobile {
+   display: block;
+ }
+
  .banner-copy {
    font-size: 16px !important;
  }
@@ -438,10 +442,14 @@ a {
 }
 @media screen and (max-width: 992px) {
 
+  .hidden-mobile {
+    display: none;
+  }
+
   .splash-page {
     margin-top: 150px;
   }
-  
+
   .profile-header {
     margin: auto ;
     padding: auto ;
