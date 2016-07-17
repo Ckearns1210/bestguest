@@ -1,49 +1,55 @@
 <% if logged_in? %>
-  <nav>
-    <div class="nav wrapper ">
-         <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down ">
-          <li>
-            <%= link_to "Events ", user_path(session[:user_id]), class: "nav-links " %>
-          </li>
-          <li>
-            <%= link_to 'Settings', edit_user_path(session[:user_id]), class: "nav-links " %>
-          </li>
-          <li>
-            <%= link_to "Logout ", '/logout', class: "nav-links " %>
-          </li>
-        </ul>
-        <ul class="side-nav" id="slide-out">
-          <li>
-            <%= link_to "Events ", user_path(session[:user_id]), class: "nav-links " %>
-          </li>
-          <li>
-            <%= link_to 'Settings', edit_user_path(session[:user_id]), class: "nav-links " %>
-          </li>
-          <li>
-            <%= link_to "Logout ", '/logout', class: "nav-links " %>
-          </li>
-        </ul>
-    </div>
-  </nav>
-
-  <% else %>
+<div class="container">
     <nav>
-      <div class="nav wrapper">
-        <a href="#" data-activates="slide-out" class="button-collapse "><i class="material-icons ">menu</i></a>
-        <ul class="right hide-on-med-and-down ">
-          <li>
-            <%= link_to 'Home', '/', class: "nav-links " %>
-          </li>
-        </ul>
-        <ul class="side-nav" id="slide-out">
-          <li>
-            <%= link_to 'Login', '/login', class: "nav-links " %>
-          </li>
-        </ul>
+        <div class="nav wrapper ">
+            <a href="#" data-activates="slide-out" class="button-collapse">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down ">
+                <li>
+                    <%= link_to "Events ", user_path(session[:user_id]), class: "nav-links " %>
+                </li>
+                <li>
+                    <%= link_to 'Settings', edit_user_path(session[:user_id]), class: "nav-links " %>
+                </li>
+                <li>
+                    <%= link_to "Logout ", '/logout', class: "nav-links " %>
+                </li>
+            </ul>
+            <ul class="side-nav" id="slide-out">
+                <li>
+                    <%= link_to "Events ", user_path(session[:user_id]), class: "nav-links " %>
+                </li>
+                <li>
+                    <%= link_to 'Settings', edit_user_path(session[:user_id]), class: "nav-links " %>
+                </li>
+                <li>
+                    <%= link_to "Logout ", '/logout', class: "nav-links " %>
+                </li>
+            </ul>
         </div>
-    </div>
     </nav>
-    <% end %>
-      <div class="container fluid ">
-        <%= render partial: "shared/flash_messages", flash: flash %>
+</div>
+<% else %>
+<div class="container">
+    <nav>
+        <div class="nav wrapper">
+            <a href="#" data-activates="slide-out" class="button-collapse ">
+                <i class="material-icons ">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down ">
+                <li>
+                    <%= link_to 'Home', '/', class: "nav-links " %>
+                </li>
+            </ul>
+            <ul class="side-nav" id="slide-out">
+                <li>
+                    <%= link_to 'Login', '/login', class: "nav-links " %>
+                </li>
+            </ul>
+        </div>
+</nav>
+</div>
+<% end %>
+<div class="container fluid ">
+<%= render partial: "shared/flash_messages", flash: flash %>
